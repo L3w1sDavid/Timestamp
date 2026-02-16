@@ -1,0 +1,1 @@
+public record TimestampResponse(Long unix, String utc) {}
