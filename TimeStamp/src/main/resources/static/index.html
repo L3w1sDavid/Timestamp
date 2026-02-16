@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Microservice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Timestamp Microservice</h1>
+    <hr>
+
+    <div class="card">
+        <h3>Try it out:</h3>
+        <div class="test-input">
+            <input type="text" id="dateInput" placeholder="Enter date or timestamp...">
+            <button onclick="testTimestamp()">Go</button>
+        </div>
+        <p>Example: <code>2015-12-25</code> or <code>1451001600000</code></p>
+    </div>
+
+    <div class="card usage">
+        <h3>Usage:</h3>
+        <ul>
+            <li><code>GET /api/2015-12-25</code></li>
+            <li><code>GET /api/1451001600000</code></li>
+            <li><code>GET /api/</code> (Returns current time)</li>
+        </ul>
+        <h3>Output:</h3>
+        <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
+    </div>
+</div>
+
+<script>
+    function testTimestamp() {
+        const val = document.getElementById('dateInput').value;
+        window.location.href = `/api/${val}`;
+    }
+</script>
+</body>
+</html>
